@@ -1,0 +1,48 @@
+.quadcard {
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 380px;
+}
+
+/* .quadcard__image {
+    width: 100%;
+    object-fit: contain;
+    border: 1px solid black;
+    outline: none;
+    margin-right: 18px;
+} */
+
+.quadcard__category img {
+    width: 100%;
+
+}
+
+.quadcard__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.quadcard__row {
+    display: flex;
+    /* width: 100%; */
+    margin-bottom: 20px;
+}
+
+.quadcard__body {
+    margin-bottom: 20px;
+}
+
+.quadcard button {
+    border: none;
+    background-color: transparent;
+    margin-top: 8px;
+    color: blue;
+    cursor: pointer;
+}
