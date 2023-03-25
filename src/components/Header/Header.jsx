@@ -4,9 +4,20 @@ import {BsSearch} from 'react-icons/bs';
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../../store/StateProvider';
+import { auth } from '../../config/firebase';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+
+  const handleAuthentication = () => {
+    signOut(auth)
+      .then(() => {
+        // sign out succcess
+      }).catch ((error) => {
+        // error
+      })
+  }
 
   return (
     <div className='header'>
@@ -18,14 +29,16 @@ const Header = () => {
         < BsSearch className='header__searchIcon'/>
       </div>
       <div className="header__nav">
-        <div className="header__navItem">
-          <span className="header__navItemLineOne">
-            Hello!
-          </span>
-          <span className="header__navItemLineTwo">
-            Sign in
-          </span>
-        </div>
+        <Link to={!user && '/login'} >
+          <div onClick={handleAuthentication} className="header__navItem">
+            <span className="header__navItemLineOne">
+              Hello!
+            </span>
+            <span className="header__navItemLineTwo">
+              { user ? 'Sign Out' : 'Sign In' }
+            </span>
+          </div>
+        </Link>
         <div className="header__navItem">
           <span className="header__navItemLineOne">
             Returns
